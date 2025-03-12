@@ -1,12 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import ComingSoonBanner from '@/components/ComingSoonBanner';
+import HeroSection from '@/components/HeroSection';
+import CourseSection from '@/components/CourseSection';
+import SignalSection from '@/components/SignalSection';
+import FeatureSection from '@/components/FeatureSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  // Add top padding to account for the coming soon banner
+  useEffect(() => {
+    const body = document.body;
+    body.style.paddingTop = '30px';
+    
+    return () => {
+      body.style.paddingTop = '0';
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      <ComingSoonBanner />
+      <Navbar />
+      <main>
+        <HeroSection />
+        <CourseSection />
+        <SignalSection />
+        <FeatureSection />
+        <ContactSection />
+      </main>
+      <Footer />
     </div>
   );
 };
