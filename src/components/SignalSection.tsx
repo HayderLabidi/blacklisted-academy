@@ -35,7 +35,7 @@ const SignalSection = () => {
     <section id="signals" className="section-spacing bg-black text-white" ref={sectionRef}>
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="order-2 lg:order-1  animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">Real-Time Trading</p>
             <h2 className="heading-lg mb-6">Expert Trading Signals</h2>
             <p className="text-lg text-gray-300 mb-8 text-balance">
@@ -79,7 +79,7 @@ const SignalSection = () => {
             </a>
           </div>
           
-          <div className="order-1 lg:order-2 relative opacity-0 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="order-1 lg:order-2 relative  animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <div className="aspect-square relative z-10">
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>

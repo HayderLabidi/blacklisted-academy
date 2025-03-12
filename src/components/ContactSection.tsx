@@ -42,10 +42,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-spacing bg-gray-50" ref={sectionRef}>
+    <section id="contact" className="section-spacing bg-black" ref={sectionRef}>
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="order-2 lg:order-1  animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
               <h2 className="heading-md mb-6">Join the Waitlist</h2>
               <p className="text-gray-600 mb-8">
@@ -103,7 +103,7 @@ const ContactSection = () => {
             </div>
           </div>
           
-          <div className="order-1 lg:order-2 opacity-0 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="order-1 lg:order-2  animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">Stay Connected</p>
             <h2 className="heading-lg mb-6">Get Early Access</h2>
             <p className="text-lg text-gray-600 mb-8 text-balance">
