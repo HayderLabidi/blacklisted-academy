@@ -24,29 +24,30 @@ const Navbar = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "py-3 bg-white/80 backdrop-blur-lg shadow-sm" : "py-5 bg-transparent"
+        isScrolled ? "py-3 bg-black/80 backdrop-blur-lg" : "py-5 bg-transparent"
       )}
     >
       <div className="container-custom flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <h1 className="text-xl font-bold tracking-tight">
-            <span className="text-black">BLACKLISTED</span>
-            <span className="text-gray-500"> TRADERS</span>
-          </h1>
+          <img 
+            src="/lovable-uploads/9492a47a-9b94-41db-a99e-ffbee53b1f61.png" 
+            alt="Blacklisted Traders Logo" 
+            className="h-8 w-auto"
+          />
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#courses" className="font-medium text-gray-700 hover:text-black transition-colors">
+          <a href="#courses" className="font-medium text-white/80 hover:text-white transition-colors">
             Courses
           </a>
-          <a href="#signals" className="font-medium text-gray-700 hover:text-black transition-colors">
+          <a href="#signals" className="font-medium text-white/80 hover:text-white transition-colors">
             Signals
           </a>
-          <a href="#features" className="font-medium text-gray-700 hover:text-black transition-colors">
+          <a href="#features" className="font-medium text-white/80 hover:text-white transition-colors">
             Features
           </a>
-          <a href="#contact" className="font-medium text-gray-700 hover:text-black transition-colors">
+          <a href="#contact" className="font-medium text-white/80 hover:text-white transition-colors">
             Contact
           </a>
           <a href="#signup" className="glass-button">
@@ -56,7 +57,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-700 hover:text-black focus:outline-none" 
+          className="md:hidden text-white/80 hover:text-white focus:outline-none" 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,7 +67,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div 
         className={cn(
-          "fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
         style={{ top: '60px' }}
@@ -74,28 +75,28 @@ const Navbar = () => {
         <nav className="flex flex-col p-8 space-y-8">
           <a 
             href="#courses" 
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
+            className="font-medium text-xl text-white/80 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Courses
           </a>
           <a 
             href="#signals" 
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
+            className="font-medium text-xl text-white/80 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Signals
           </a>
           <a 
             href="#features" 
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
+            className="font-medium text-xl text-white/80 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Features
           </a>
           <a 
             href="#contact" 
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
+            className="font-medium text-xl text-white/80 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact
