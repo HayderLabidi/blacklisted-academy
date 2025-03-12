@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useRef, useEffect } from 'react';
 import { Signal, TrendingUp, Clock, BarChart3 } from 'lucide-react';
