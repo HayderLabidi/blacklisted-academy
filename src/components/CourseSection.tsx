@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import { BookOpen, CheckCircle } from 'lucide-react';
 
@@ -54,12 +53,12 @@ const CourseSection = () => {
   }, []);
 
   return (
-    <section id="courses" className="section-spacing bg-black" ref={sectionRef}>
+    <section id="courses" className="section-spacing bg-white" ref={sectionRef}>
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-sm uppercase tracking-widest text-white mb-4">Trading Education</p>
-          <h2 className="heading-lg mb-6 text-white">Premium Trading Courses</h2>
-          <p className="text-lg text-white text-balance">
+          <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">Trading Education</p>
+          <h2 className="heading-lg mb-6 text-black">Premium Trading Courses</h2>
+          <p className="text-lg text-gray-600 text-balance">
             Comprehensive courses designed to transform beginners into confident traders and help experienced traders reach new heights.
           </p>
         </div>
@@ -68,25 +67,25 @@ const CourseSection = () => {
           {courses.map((course) => (
             <div 
               key={course.id} 
-              className="course-card glass-panel p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 opacity-0"
+              className="course-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 opacity-0"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <div className="p-2 bg-white/10 rounded-full">
-                  <BookOpen size={20} className="text-white" />
+                <div className="p-2 bg-gray-100 rounded-full">
+                  <BookOpen size={20} className="text-gray-700" />
                 </div>
-                <span className="text-sm font-medium bg-white/10 px-3 py-1 rounded-full text-white">
+                <span className="text-sm font-medium bg-gray-100 px-3 py-1 rounded-full text-gray-700">
                   {course.level}
                 </span>
               </div>
               
-              <h3 className="text-xl font-bold mb-3 text-white">{course.title}</h3>
-              <p className="text-white/80 mb-6">{course.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-black">{course.title}</h3>
+              <p className="text-gray-600 mb-6">{course.description}</p>
               
               <div className="flex items-center justify-between mb-6">
-                <div className="text-sm text-white/70">
+                <div className="text-sm text-gray-600">
                   <span className="font-medium">{course.modules} Modules</span>
                 </div>
-                <div className="text-sm text-white/70">
+                <div className="text-sm text-gray-600">
                   <span className="font-medium">{course.duration}</span>
                 </div>
               </div>
@@ -94,13 +93,13 @@ const CourseSection = () => {
               <div className="space-y-3 mb-8">
                 {course.features.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-2">
-                    <CheckCircle size={16} className="text-white/80" />
-                    <span className="text-sm text-white/80">{feature}</span>
+                    <CheckCircle size={16} className="text-gray-700" />
+                    <span className="text-sm text-gray-700">{feature}</span>
                   </div>
                 ))}
               </div>
               
-              <a href="#signup" className="glass-button w-full flex justify-center">
+              <a href="#signup" className="bg-black text-white px-6 py-3 rounded-full w-full flex justify-center hover:bg-gray-800 transition-colors">
                 Join Waitlist
               </a>
             </div>
