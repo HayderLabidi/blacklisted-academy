@@ -29,10 +29,10 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/9492a47a-9b94-41db-a99e-ffbee53b1f61.png" 
+            src="/lovable-uploads/logo-blt.png" 
             alt="Blacklisted Traders Logo" 
-            className="h-8 w-auto"
-          />
+            className="h-20 w-auto"
+          />Blacklisted Traders
         </a>
 
         {/* Desktop Navigation */}

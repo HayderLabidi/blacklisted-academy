@@ -34,7 +34,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="staggered-fade-in space-y-8 order-2 lg:order-1">
             <div>
-              <p className="text-sm uppercase tracking-widest text-gray-600 mb-4">Premium Trading Education</p>
+              <p className="text-sm uppercase tracking-widest text-gray-600 mb-4"></p>
               <h1 className="heading-xl mb-4">
                 <span className="block">Master The Markets</span>
                 <span className="block">With <span className="text-gray-600">Blacklisted</span> Traders</span>
