@@ -14,7 +14,9 @@ const Index = () => {
       <main>
         <HeroSection />
         <CourseSection />
-        <SignalSection />
+        <div className="pb-0">
+          <SignalSection />
+        </div>
         <ContactSection />
       </main>
       <Footer />

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -41,12 +40,6 @@ const Navbar = () => {
           <a href="#courses" className="font-medium text-white/80 hover:text-white transition-colors">
             Courses
           </a>
-          <a href="#signals" className="font-medium text-white/80 hover:text-white transition-colors">
-            Signals
-          </a>
-          <a href="#features" className="font-medium text-white/80 hover:text-white transition-colors">
-            Features
-          </a>
           <a href="#contact" className="font-medium text-white/80 hover:text-white transition-colors">
             Contact
           </a>
@@ -79,20 +72,6 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             Courses
-          </a>
-          <a 
-            href="#signals" 
-            className="font-medium text-xl text-white/80 hover:text-white transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Signals
-          </a>
-          <a 
-            href="#features" 
-            className="font-medium text-xl text-white/80 hover:text-white transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Features
           </a>
           <a 
             href="#contact" 
