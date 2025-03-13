@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 
 // Paths to images in the public folder
-const Professor1Logo = "/lovable-uploads/ibrahim.png";
-const Professor2Logo = "/lovable-uploads/hmzed.png";
+const Professor1Logo = "/lovable-uploads/timesta.png";
+const Professor2Logo =  "/lovable-uploads/spayzer.png";
 const Professor3Logo = "/lovable-uploads/motaz.png";
-const Professor4Logo = "/lovable-uploads/timesta.png";
+const Professor4Logo = "/lovable-uploads/ibrahim.png";
 const Professor5Logo = "/lovable-uploads/yassin.png";
-const Professor6Logo = "/lovable-uploads/spayzer.png";
+const Professor6Logo = "/lovable-uploads/hmzed.png";
 
 const features = [
   {
