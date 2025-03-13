@@ -1,13 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import { BookOpen, CheckCircle } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useCourse } from "@/contexts/CourseContext";
+import { toast } from "sonner";
 
 const courses = [
   {
-    id: 1,
+    id: '1',
     title: "Trading Fundamentals Masterclass",
     description:
       "Master the essential concepts and build a solid foundation for successful trading.",
-    level: "Beginner",
+    level: "beginner",
     modules: 12,
     duration: "10 weeks",
     features: [
@@ -18,11 +22,11 @@ const courses = [
     ],
   },
   {
-    id: 2,
+    id: '2',
     title: "Advanced Chart Analysis",
     description:
       "Develop expert-level skills in reading and interpreting price action and patterns.",
-    level: "Intermediate",
+    level: "intermediate",
     modules: 8,
     duration: "6 weeks",
     features: [
@@ -36,13 +40,15 @@ const courses = [
 
 const CourseSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { isAuthenticated } = useAuth();
+  const { enrollInCourse } = useCourse();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("Element is intersecting:", entry.target); // Debugging
             entry.target.classList.add("animate-fade-in");
           }
         });
@@ -66,6 +72,21 @@ const CourseSection = () => {
     };
   }, []);
 
+  const handleCourseClick = async (courseId: string) => {
+    if (!isAuthenticated) {
+      navigate('/sign-in');
+      return;
+    }
+
+    try {
+      await enrollInCourse(courseId);
+      toast.success("Successfully enrolled in course!");
+      navigate(`/course/${courseId}`);
+    } catch (error) {
+      toast.error("Failed to enroll in course. Please try again.");
+    }
+  };
+
   return (
     <section id="courses" className="section-spacing bg-gray-300" ref={sectionRef}>
       <div className="container-custom">
@@ -86,7 +107,7 @@ const CourseSection = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="course-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 "
+              className="course-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <div className="flex items-center space-x-3 mb-4">
                 <div className="p-2 bg-gray-100 rounded-full">
@@ -120,12 +141,12 @@ const CourseSection = () => {
                 ))}
               </div>
 
-              <a
-                href="#signup"
+              <button
+                onClick={() => handleCourseClick(course.id)}
                 className="bg-black text-white px-6 py-3 rounded-full w-full flex justify-center hover:bg-gray-800 transition-colors"
               >
-                Join Waitlist
-              </a>
+                {isAuthenticated ? 'Enroll Now' : 'Sign In to Enroll'}
+              </button>
             </div>
           ))}
         </div>

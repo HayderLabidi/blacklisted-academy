@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, signOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +23,21 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleAuthClick = () => {
+    if (isAuthenticated) {
+      signOut();
+    } else {
+      navigate('/sign-in');
+    }
+  };
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-white/80 backdrop-blur-lg shadow-sm"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-black shadow-lg md:bg-black/80 md:backdrop-blur-lg"
+          : "py-5 bg-black md:bg-black/90 md:backdrop-blur-md"
       )}
     >
       <div className="container-custom flex items-center justify-between">
@@ -33,44 +45,42 @@ const Navbar = () => {
           <img src="/lovable-uploads/logo-blt.png" className="h-10 w-auto" />
           <h1 className="text-xl font-bold tracking-tight">
             <span className="text-white">BLACKLISTED</span>
-            <span className="text-gray-200"> TRADERS</span>
+            <span className="text-gray-300"> TRADERS</span>
           </h1>
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#courses"
-            className="font-medium text-gray-700 hover:text-black transition-colors"
-          >
-            Courses
-          </a>
-          <a
-            href="#signals"
-            className="font-medium text-gray-700 hover:text-black transition-colors"
-          >
-            Signals
-          </a>
-          <a
-            href="#features"
-            className="font-medium text-gray-700 hover:text-black transition-colors"
-          >
-            Features
-          </a>
-          <a
-            href="#contact"
-            className="font-medium text-gray-700 hover:text-black transition-colors"
-          >
-            Contact
-          </a>
-          <a href="#signup" className="glass-button">
-            Sign Up
-          </a>
+          {!isAuthenticated && (
+            <>
+              <button
+                onClick={() => navigate('/courses')}
+                className="font-medium text-gray-300 hover:text-white transition-colors"
+              >
+                Courses
+              </button>
+              <button
+                onClick={() => navigate('/contact')}
+                className="font-medium text-gray-300 hover:text-white transition-colors"
+              >
+                Contact
+              </button>
+              <button
+                onClick={() => navigate('/faq')}
+                className="font-medium text-gray-300 hover:text-white transition-colors"
+              >
+                FAQ
+              </button>
+            </>
+          )}
+          <button onClick={handleAuthClick} className="glass-button">
+            {isAuthenticated ? 'Sign Out' : 'Sign In'}
+          </button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700 hover:text-black focus:outline-none"
+          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,47 +90,52 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
         style={{ top: "60px" }}
       >
         <nav className="flex flex-col p-8 space-y-8">
-          <a
-            href="#courses"
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Courses
-          </a>
-          <a
-            href="#signals"
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Signals
-          </a>
-          <a
-            href="#features"
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Features
-          </a>
-          <a
-            href="#contact"
-            className="font-medium text-xl text-gray-700 hover:text-black transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact
-          </a>
-          <a
-            href="#signup"
+          {!isAuthenticated && (
+            <>
+              <button
+                onClick={() => {
+                  navigate('/courses');
+                  setIsMenuOpen(false);
+                }}
+                className="font-medium text-xl text-gray-300 hover:text-white transition-colors text-left"
+              >
+                Courses
+              </button>
+              <button
+                onClick={() => {
+                  navigate('/contact');
+                  setIsMenuOpen(false);
+                }}
+                className="font-medium text-xl text-gray-300 hover:text-white transition-colors text-left"
+              >
+                Contact
+              </button>
+              <button
+                onClick={() => {
+                  navigate('/faq');
+                  setIsMenuOpen(false);
+                }}
+                className="font-medium text-xl text-gray-300 hover:text-white transition-colors text-left"
+              >
+                FAQ
+              </button>
+            </>
+          )}
+          <button
+            onClick={() => {
+              handleAuthClick();
+              setIsMenuOpen(false);
+            }}
             className="glass-button w-full text-center"
-            onClick={() => setIsMenuOpen(false)}
           >
-            Sign Up
-          </a>
+            {isAuthenticated ? 'Sign Out' : 'Sign In'}
+          </button>
         </nav>
       </div>
     </header>

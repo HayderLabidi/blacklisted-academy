@@ -33,7 +33,7 @@ const SignalSection = () => {
   }, []);
 
   return (
-    <section id="signals" className="section-spacing bg-black text-white" ref={sectionRef}>
+    <section id="signals" className="section-spacing bg-gray-900 text-white" ref={sectionRef}>
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1  animate-fade-in" style={{ animationDelay: '0.2s' }}>
