@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -9,13 +10,11 @@ const Index = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white text-codecademy-gray-dark">
       <Navbar />
       <main>
         <HeroSection />
-        {!isAuthenticated && (
-            <SignalSection />
-        )}
+        {!isAuthenticated && <SignalSection />}
       </main>
       <Footer />
     </div>

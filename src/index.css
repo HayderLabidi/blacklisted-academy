@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 100%;
+    --card: 240 25% 98%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 25% 98%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+    --primary: 255, 73%, 74%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 240 25% 98%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: 240 25% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 240 25% 98%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.9%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 255, 73%, 74%;
 
     --radius: 0.5rem;
   }
@@ -53,21 +53,17 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-lg;
-  }
-  
-  .glass-panel-dark {
-    @apply bg-black/40 backdrop-blur-lg border border-white/10 rounded-2xl shadow-lg;
+    @apply bg-white shadow-lg rounded-lg border border-codecademy-purple/10;
   }
   
   .glass-button {
-    @apply px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm text-white transition-all duration-300
-    hover:bg-white/20 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    @apply px-6 py-3 rounded-lg bg-codecademy-purple text-white font-medium transition-all duration-300
+    hover:bg-codecademy-purple-dark hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
   }
   
   .glass-button-outline {
-    @apply px-6 py-3 rounded-full bg-transparent backdrop-blur-sm border border-white/20 text-white transition-all duration-300
-    hover:bg-white/10 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    @apply px-6 py-3 rounded-lg bg-transparent border-2 border-codecademy-purple text-codecademy-purple font-medium transition-all duration-300
+    hover:bg-codecademy-purple hover:text-white hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
   }
   
   .staggered-fade-in > * {
@@ -89,17 +85,17 @@
 
 @layer utilities {
   .heading-xl {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
     line-height: 1.1;
   }
   
   .heading-lg {
-    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    @apply text-4xl md:text-5xl font-bold;
     line-height: 1.1;
   }
   
   .heading-md {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-3xl md:text-4xl font-bold;
     line-height: 1.2;
   }
   
