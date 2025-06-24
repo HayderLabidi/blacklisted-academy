@@ -36,16 +36,16 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-white shadow-md"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-black shadow-lg md:bg-black/80 md:backdrop-blur-lg"
+          : "py-5 bg-black md:bg-black/90 md:backdrop-blur-md"
       )}
     >
       <div className="container-custom flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img src="/lovable-uploads/logo-blt.png" className="h-10 w-auto" />
           <h1 className="text-xl font-bold tracking-tight">
-            <span className="text-codecademy-purple-darkest">BLACKLISTED</span>
-            <span className="text-codecademy-gray"> TRADERS</span>
+            <span className="text-white">BLACKLISTED</span>
+            <span className="text-gray-300"> TRADERS</span>
           </h1>
         </a>
 
@@ -55,19 +55,19 @@ const Navbar = () => {
             <>
               <button
                 onClick={() => navigate('/courses')}
-                className="font-medium text-codecademy-gray hover:text-codecademy-purple transition-colors"
+                className="font-medium text-gray-300 hover:text-white transition-colors"
               >
                 Courses
               </button>
               <button
                 onClick={() => navigate('/contact')}
-                className="font-medium text-codecademy-gray hover:text-codecademy-purple transition-colors"
+                className="font-medium text-gray-300 hover:text-white transition-colors"
               >
                 Contact
               </button>
               <button
                 onClick={() => navigate('/faq')}
-                className="font-medium text-codecademy-gray hover:text-codecademy-purple transition-colors"
+                className="font-medium text-gray-300 hover:text-white transition-colors"
               >
                 FAQ
               </button>
@@ -80,7 +80,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-codecademy-gray hover:text-codecademy-purple focus:outline-none"
+          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -90,7 +90,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-white transform transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
         style={{ top: "60px" }}
@@ -103,7 +103,7 @@ const Navbar = () => {
                   navigate('/courses');
                   setIsMenuOpen(false);
                 }}
-                className="font-medium text-xl text-codecademy-gray hover:text-codecademy-purple transition-colors text-left"
+                className="font-medium text-xl text-gray-300 hover:text-white transition-colors text-left"
               >
                 Courses
               </button>
@@ -112,7 +112,7 @@ const Navbar = () => {
                   navigate('/contact');
                   setIsMenuOpen(false);
                 }}
-                className="font-medium text-xl text-codecademy-gray hover:text-codecademy-purple transition-colors text-left"
+                className="font-medium text-xl text-gray-300 hover:text-white transition-colors text-left"
               >
                 Contact
               </button>
@@ -121,7 +121,7 @@ const Navbar = () => {
                   navigate('/faq');
                   setIsMenuOpen(false);
                 }}
-                className="font-medium text-xl text-codecademy-gray hover:text-codecademy-purple transition-colors text-left"
+                className="font-medium text-xl text-gray-300 hover:text-white transition-colors text-left"
               >
                 FAQ
               </button>
